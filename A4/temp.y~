@@ -1,0 +1,21 @@
+\+\+|\-\-	{return INC;}
+\>\=|\<\=|\=\=|\!\=	{return RELOP;}
+\&\&|\|\| {return LOGOP;}
+\"[a-zA-Z0-9]*\" {return STCONST;}
+
+loop:FOR '(' for1 ')' '{'body '}'	{printf("Valid for statemnet");};
+for1:varstmnt ';'for2 ';' for3;
+for2:condition | ';' ;
+for3:increment |';';
+condition:IDENTIFIER RELOP var LOGOP condition |  IDENTIFIER RELOP var;
+var:NUM|IDENTIFIER;
+increment:IDENTIFIER INC ',' increment|IDENTIFIER INC;
+if:IF '(' condition ')' '{'body'}' {printf("VAlid if");};
+else:ELSE '{' body '}';
+printf:PRINT '(' STCONST ')' ';' {printf("valid print statement\n");};
+
+
+
+
+
+

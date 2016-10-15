@@ -1,0 +1,40 @@
+%{
+#include <stdio.h>
+%}
+
+%token MAIN FOR IF ELSE DATATYPE PRINT NUM IDENTIFIER OP INC RELOP LOGOP STCONST
+
+%%
+
+main:MAIN '('')' '{'body'}';
+body:stmnt ; 
+stmnt:varstmnt | condition | loop | printf | stmnt  ;
+varstmnt:DATATYPE variable ';' ;
+variable :IDENTIFIER ',' variable |IDENTIFIER {printf("valid declaration\n");};
+printf:PRINT '(' STCONST ')' ';' {printf("valid print statement\n");};
+loop:FOR '(' for1 ')' '{'body '}'	{printf("Valid for loop\n");};
+for1:varstmnt ';'for2 ';' for3;
+for2:condition | ';' ;
+for3:increment |';';
+condition:IDENTIFIER RELOP var LOGOP condition |  IDENTIFIER RELOP var;
+var:NUM|IDENTIFIER;
+increment:IDENTIFIER INC ',' increment|IDENTIFIER INC;
+if:IF '(' condition ')' '{'body'}' {printf("Valid if\n");};
+else:ELSE '{' body '}';
+
+
+
+%%
+extern FILE *yyin;
+main()
+{
+
+yyin=fopen("input.txt","r");
+yyparse();
+
+}
+
+yyerror()
+{
+printf("Invalid syntax");
+}
