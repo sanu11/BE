@@ -22,7 +22,7 @@ int|float|char|double  { printf("%d 		%s 		DATATYPE\n",lno , yytext) ; fprintf(o
 
 scanf|printf  { printf("%d %s  LIBRARY FUNCTIONS\n",lno , yytext) ; fprintf(opfile,"%s " , yytext);}
 
-\"[a-zA-Z0-9]*\"	{ printf("%d		 %s 		STRING CONST\n",lno , yytext) ; fprintf(opfile,"%s " , yytext); add_identifier(yytext); }
+\"[a-zA-Z0-9]*\"	{ printf("%d		 %s 		STRING CONST\n",lno , yytext) ; fprintf(opfile,"%s " , yytext);  }
 [a-zA-Z][a-zA-Z0-9]*  { printf("%d		 %s 		IDENTIFIER\n",lno , yytext) ; fprintf(opfile,"%s " , yytext); add_identifier(yytext);}
 [0-9]+[a-zA-Z]+	{ printf("%d		 %s 		 UNRECOGNISED IDENTIFIER\n",lno , yytext) ; fprintf(opfile,"%s " , yytext); char str[100]="Unrecognised Token " ;strcat(str,yytext); arr_line[error]=lno; strcpy(error_desc[error],str);error++; }
 
@@ -56,6 +56,7 @@ main()
 	char ofile[100];
 	printf("Enter output file name	");
 	scanf("%s",ofile);
+	
 	opfile=fopen(ofile,"w");
 
 	yyin=fopen(infile,"r");
@@ -83,6 +84,7 @@ main()
 
 	}
 	return 0;
+
 }
 
 void add_identifier(char s[50])
@@ -94,8 +96,7 @@ void add_identifier(char s[50])
 			return;
 
 	}
-	
-		
+			
 		strcpy(name[id_cnt],s);
 		id_cnt++;
 }

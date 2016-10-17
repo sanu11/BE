@@ -30,13 +30,15 @@ extern FILE *yyin;
 main()
 {
 
-yyin=fopen("input.txt","r");
-yyparse();
+	yyin=fopen("input.txt","r");
+	yyparse();
 
 }
 
 yyerror()
 {
-printf("invalid syntax");
+
+	printf("invalid syntax");
+
 }
 

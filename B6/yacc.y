@@ -1,7 +1,6 @@
 %{
 #include<stdio.h>
 
-
 typedef struct node
 {
 	struct node *left;
