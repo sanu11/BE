@@ -1,0 +1,206 @@
+-------------Main Activity-------------
+package com.example.scientificcalculator;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+
+    }
+
+    public void onClickexp(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+
+        int num1, exp;
+
+        num1 = Integer.parseInt(ed1.getText().toString());
+        exp = Integer.parseInt(ed2.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.pow(num1, exp)));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClicktan(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double angle;
+
+        angle = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.tan(Math.toRadians(angle))));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickcos(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double angle;
+
+        angle = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.cos(Math.toRadians(angle))));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClicksin(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double angle;
+
+        angle = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.sin(Math.toRadians(angle))));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickroot(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double num;
+
+        num = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.sqrt(num)));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickln(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double num;
+
+        num = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.log(num)));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClicklog(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        ed2.setText("");
+
+        double num;
+
+        num = Integer.parseInt(ed1.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(Math.log10(num)));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickC(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+        EditText result = (EditText)findViewById(R.id.editText3);
+        ed2.setText("");
+        ed1.setText("");
+        result.setText("");
+    }
+
+    public void onClickadd(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+
+        int num1, num2;
+
+        num1 = Integer.parseInt(ed1.getText().toString());
+        num2 = Integer.parseInt(ed2.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(num1+num2));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClicksub(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+
+        int num1, num2;
+
+        num1 = Integer.parseInt(ed1.getText().toString());
+        num2 = Integer.parseInt(ed2.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(num1-num2));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickmul(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+
+        int num1, num2;
+
+        num1 = Integer.parseInt(ed1.getText().toString());
+        num2 = Integer.parseInt(ed2.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+        result.append(Double.toString(num1*num2));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+
+    public void onClickdiv(View v){
+        EditText ed1 = (EditText)findViewById(R.id.editText2);
+        EditText ed2 = (EditText)findViewById(R.id.editText);
+
+        int num1, num2;
+
+        num1 = Integer.parseInt(ed1.getText().toString());
+        num2 = Integer.parseInt(ed2.getText().toString());
+
+        EditText result = (EditText)findViewById(R.id.editText3);
+
+        if(num2 == 0)
+            result.append("Invalid");
+        else
+            result.append(Double.toString(num1/num2));
+        int y = (result.getLineCount() - 1) * result.getLineHeight();
+        result.scrollTo(0, y);
+        result.append("\n");
+    }
+}

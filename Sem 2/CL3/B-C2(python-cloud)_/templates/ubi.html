@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<center>
+		<form action="/datasource" method='post'>
+			Name: <input type="text" name="name"><br>
+		  	Tag1: <input type="text" name="tag1"><br>
+		  	Tag2: <input type="text" name="tag2"><br>
+		  	Description: <input type="text" name="description"><br>  	
+		`	<input type="submit" value="Create datasource">
+		</form>
+
+		<br>
+		<br>
+		<br>
+		<br>
+		
+		<form action="/insert" method='post'>
+			Variable Name: <input type="text" name="vname"><br>
+			Unit: <input type="text" name="unit"><br>
+		  	Value 1: <input type="text" name="value1"><br>
+		  	Value 2: <input type="text" name="value2"><br>
+		  	Value 3: <input type="text" name="value3"><br>  
+			<input type="submit" value="Insert value in a variable">
+		</form>
+
+		<br>
+		<br>
+		<br>
+		<br>
+
+		<form action="/get_value" method='post'>
+			<input type="submit" value="Get the latest value of variables">
+		</form>
+
+	</center>
+ 
+</body>
+</html>

@@ -1,0 +1,59 @@
+-------------MainActivity.java--------------
+
+package com.example.palindrome;
+
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MainActivity extends ActionBarActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void onclick(View v)
+    {
+        EditText textview = (EditText)findViewById(R.id.editText);
+        String input = textview.getText().toString();
+
+        int traverse = input.length()-1;
+        int counter = 0;
+        int status = 1;
+
+        while(counter < traverse)
+        {
+            if(input.charAt(counter) != input.charAt(traverse))
+            {
+                status = 0;
+                break;
+            }
+            ++counter;
+            --traverse;
+        }
+
+        if(status == 0)
+        {
+            MakeToast("String Isn't Palindrome");
+        }
+        else
+        {
+            MakeToast("String Is Palindrome");
+        }
+    }
+
+    public void MakeToast(String message)
+    {
+        Toast myToast = Toast.makeText(getApplicationContext(),message, Toast.LENGTH_LONG);
+        myToast.show();
+    }
+
+}
