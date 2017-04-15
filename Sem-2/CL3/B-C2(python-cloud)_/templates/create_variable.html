@@ -1,0 +1,23 @@
+<html>
+
+<h1>Variables Inserted</h1>
+<body>
+
+    {% if name %}
+        DataSource selected is {{ name }}
+    {% endif %}   
+    {% if variable %}
+        variable inserted is {{ variable }}
+        <p  > unit is {{unit}} </p><br>
+         <p>Values are: </p><br>
+        {% for entry in values %}
+            <br>{{entry}}<br>
+        {% endfor %}
+
+
+
+
+    {% endif %}
+
+</body>
+</html>

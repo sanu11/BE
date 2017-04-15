@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title>Plagiarism Checker</title>
+</head>
+
+<body>
+<h1>Plagiarism Checker </h1>
+<h2><u>{{ msg }}</u></h2>
+
+<form action =  "/check/", method = "POST">
+	Enter String : <input type = "text" name = "data" value = "{{ data }}">
+	<input type = "submit" value = "Check" name="button">
+</form>
+</body>
+</html>

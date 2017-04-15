@@ -1,0 +1,33 @@
+<html>
+
+<h1>DataSource Creation</h1>
+<body>
+    <p>
+    {% if already_present %}
+        <p>Datasource Already present ,Try new name</p>
+    
+    {% else %}
+        <p> Created a datasource</p>
+        {% if name %}
+                DataSource Name is {{ name }}
+            {% endif %}
+            </p>
+
+            <p>
+            {% if tags %}
+                DataSource tags are {{ tags }}
+            {% endif %}
+            </p>
+
+            <p>
+            {% if description %}
+                DataSource description is {{ description }}
+            {% endif %}
+            </p>
+
+
+    {% endif %}
+
+    
+</body>
+</html>
