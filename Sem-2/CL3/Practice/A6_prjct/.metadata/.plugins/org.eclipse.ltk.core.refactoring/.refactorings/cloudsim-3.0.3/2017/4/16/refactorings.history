@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;cloudsim-3.0.3/CloudSim&apos; to &apos;CloudSim.java&apos;" description="Rename resource &apos;CloudSim&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CloudSim" name="CloudSim.java" stamp="1492329521910" updateReferences="true"/>
-</session>
