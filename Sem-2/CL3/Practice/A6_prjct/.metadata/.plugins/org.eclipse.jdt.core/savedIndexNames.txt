@@ -1,0 +1,7 @@
+INDEX VERSION 1.127+/home/jerry-san/BE/Sem-2/CL3/Practice/A6/.metadata/.plugins/org.eclipse.jdt.core
+74215795.index
+2755249019.index
+64845517.index
+4144845368.index
+1818729734.index
+1653789984.index
