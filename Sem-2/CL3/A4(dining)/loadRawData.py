@@ -5,9 +5,10 @@ def getDataFromFile(fname):
     # to learn more about MongoLab visit http://www.mongolab.com
     # replace the "" in the line below with your MongoLab connection string
     # you can also use a local MongoDB instance
-    connection = MongoClient("127.0.0.1",27017)
-    db = connection.the_database
-    db.authenticate('admin', 'admin123', source='admin')
+    URI = "mongodb://accountAdmin01:changeMe@127.0.0.1:27017/test"
+    connection = MongoClient(URI)
+    db = connection.test
+    # db.authenticate('admin', 'admin123', source='admin')
 
     # connect to the students database and the ctec121 collection
     db = connection.test.diniraw

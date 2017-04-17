@@ -17,6 +17,7 @@ class Philosopher(threading.Thread):
     running = True
     connection = MongoClient("127.0.0.1",27017)
     printcounter=0
+
     @staticmethod
     def readFromMongo(self,index):
         print "Reading raw data...."
@@ -35,28 +36,26 @@ class Philosopher(threading.Thread):
         self.forkOnRight = forkOnRight
  
     def run(self):
-        while(self.running):
-            #  Philosopher is thinking (but really is sleeping).
-            time.sleep( random.uniform(3,13))
-            print '%s is hungry.' % self.name
-            self.dine()
+        #  Philosopher is thinking (but really is sleeping).
+        time.sleep( random.uniform(3,13))
+        print '%s is hungry.' % self.name
+        self.dine()
  
     def dine(self):
         fork1, fork2 = self.forkOnLeft, self.forkOnRight
  
-        while self.running:
-            fork1.acquire(True)
-            locked = fork2.acquire(False)
-            if locked: break
+        while True:
+            fork1.acquire(True) #waits till thread is unlocked and then locks it 
+            unlocked = fork2.acquire(False) #if thread is locked return false ,else return true
+            if unlocked: 
+                break
             fork1.release()
-            print '%s swaps forks' % self.name
-            fork1, fork2 = fork2, fork1
-        else:
-            return
+            # print '%s swaps forks' % self.name
+            # fork1, fork2 = fork2, fork1
         
         self.dining()
-        fork2.release()
         fork1.release()
+        fork2.release()
  
     def dining(self):			
         print '%s starts eating '% self.name
@@ -66,16 +65,18 @@ class Philosopher(threading.Thread):
         
 def DiningPhilosophers():
     forks = [threading.Lock() for n in range(5)]
+    print type(forks[0])
     philosopherNames = ('Aristotle','Kant','Buddha','Marx', 'Russel')
  
     philosophers= [Philosopher(i, philosopherNames[i], forks[i%5], forks[(i+1)%5]) \
             for i in range(5)]
  
-    random.seed(5627)
+    random.seed(3000)
     Philosopher.running = True
-    for p in philosophers: p.start()
-    time.sleep(10)
-    Philosopher.running = False
+    for p in philosophers: 
+        p.start()
+    
+    # Philosopher.running = False
     print ("Now we're finishing.")
 
 DiningPhilosophers()
