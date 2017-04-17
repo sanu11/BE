@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Database</title>
+</head>
+<body>
+<form action="/add" method="post">
+<div>
+Name : <input name="name" type= "text"><br>
+Mobile : <input name="mobile" type=text"><br>
+Position : <input name = "position" type="text"><br>
+Salary : <input name="salary" type ="number"><br>
+
+</div>
+<div>
+<input type="submit" value="Add Employee">
+</div>
+</form>
+<br>
+<br>
+<ul>
+{% for employee in Employees %}
+<li>
+<blockquote>{{ employee.name }}</blockquote>
+<blockquote>{{ employee.mobile }}</blockquote>
+<blockquote>{{ employee.position }}</blockquote>
+<blockquote>{{ comment.salary }}</blockquote>
+
+</li>
+{% endfor %}
+</ul>
+</body>
+</html>

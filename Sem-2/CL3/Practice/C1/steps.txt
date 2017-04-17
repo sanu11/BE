@@ -1,0 +1,19 @@
+
+***ECLIPSE***
+
+extract google cloud sdk
+go to its bin folder . execute below command. Then  folder will b created named google_appengine
+gcloud components install app-engine-python
+gcloud components install app-engine-python-extras
+
+in eclipse 
+ http://pydev.org/updates
+add above link to install software in help of eclipse
+DONE
+
+Create new google-app-engine pydev project
+give location of google-app-engine folder (google-cloud-sdk/platform/google-app-engine)
+You are ready to go :)
+
+localhost:8000 - app-engine's html
+localhost:8080 - Your html
