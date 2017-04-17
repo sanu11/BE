@@ -236,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-res = roundThreeDecimals(res);
+
  return res;
     }
 }

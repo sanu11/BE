@@ -49,15 +49,15 @@
 
 
             <Button
-                android:text="-"
+                android:text="SAVE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/input"
                 android:layout_alignLeft="@+id/input"
                 android:layout_alignStart="@+id/input"
                 android:layout_marginTop="91dp"
-                android:onClick="onClickButton"
-                android:id="@+id/neg" />
+                android:onClick="onClickSave"
+                android:id="@+id/save" />
 
             <Button
                 android:text="="

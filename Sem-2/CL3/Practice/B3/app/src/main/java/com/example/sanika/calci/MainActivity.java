@@ -1,11 +1,13 @@
 package com.example.sanika.calci;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.renderscript.Double2;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     String expr="";
     int operator = 0;
     int flag=0;
+    int save=1;
+    MemorySaveRecall memorysave;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         String filename = "input.txt";
         String expr= "3+5";
         FileOutputStream outputstream;
+        memorysave = new MemorySaveRecall(getApplicationContext());
         try {
         outputstream = openFileOutput(filename, Context.MODE_PRIVATE);
 
@@ -184,6 +189,31 @@ public class MainActivity extends AppCompatActivity {
         DecimalFormat twoDForm = new DecimalFormat("#.###");
         return Double.valueOf(twoDForm.format(d));
     }
+    public  void onClickSave(View v){
+        if(save==1){
+            TextView textview = (TextView)findViewById(R.id.input);
+            String res= textview.getText().toString();
+            memorysave.saveResult(res);
+            save=0;
+            Button button = (Button)findViewById(R.id.save);
+            button.setText("RECALL");
+            expr="";
+            textview.setText("");
+        }
+        else{
+
+            String res= memorysave.recallResult();
+            save=1;
+
+            TextView textview = (TextView)findViewById(R.id.input);
+            textview.setText(textview.getText() + res);
+            Button button = (Button)findViewById(R.id.save);
+            button.setText("SAVE");
+            expr+=res;
+        }
+
+    }
+
 
 
     public static double calculate(String expr,int operator,int flag) {
@@ -236,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
-
+//res = roundThreeDecimals(res);
  return res;
     }
 }
