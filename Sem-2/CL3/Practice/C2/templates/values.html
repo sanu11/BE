@@ -1,0 +1,14 @@
+<html>
+<body>
+<p> {% if name %}
+NAME :{{name}} <br>
+{% endif %}
+{% for entry in length %}
+VARIABLE:
+{{variables[entry]}}<br>
+VALUES:
+{{values[entry]}}
+<br>
+{% endfor %}
+</body>
+</html>
