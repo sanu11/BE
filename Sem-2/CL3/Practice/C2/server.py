@@ -47,7 +47,6 @@ def insert():
 	
 	return render_template("variable.html",name=name,values=values)
 
-
 @app.route("/display",methods=['GET','POST'])
 def display():
 	print "hi"
