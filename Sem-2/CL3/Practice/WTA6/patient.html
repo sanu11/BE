@@ -1,0 +1,38 @@
+<html>
+<body>
+
+  <label>Hello {{ name }}!</label>
+    <br><br>
+    
+    <form action="./{{ name }}" method="POST">
+    Patient's Name: <input type="text" name="pname">
+    <br><br>
+    Patient's Age: <input type="text" name="page">
+    <br><br>
+    Time slot: <input type="text" name="ptime">
+    <br><br>
+    Doctor: <select name="doctor">
+                {% for doc in doctors %}
+                <option> {{ doc.Name }} </option>
+                {% endfor %}
+            </select>
+    <br><br>
+    <input type="submit" value="Send request for appointment" >
+    </form>
+    
+    {% for a in appointments %}
+    <label> {{ a.PatientsName }}</label>
+     <label>{{ a.PatientsAge }}</label>
+      <label>{{ a.Time }}</label>
+       <label>{{ a.Result }}</label>
+        <label>{{ a.Doctor }}</label>
+        <br><br>
+    {% endfor %}
+    
+    <br><br><br><br><br><br><br><br><br><br>
+  <form action="/login/" method=get>
+        <input type=submit value=Logout>
+  </form>  
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+  <label>Hello Dr. {{ name }}!</label>
+  <br><br>
+  <table>
+  {% for ap in appointments %}
+  <form action="./{{ name }}" method="POST">
+  <tr>
+    <td>{{ ap.Name }}</td>
+    <td>{{ ap.Age }}</td>
+    <td>{{ ap.Time }}</td>
+    {% if ap.Result=="Pending" %}
+    <td><input type="submit" name={{ ap._id }} value="Accept"></td>
+    <td><input type="submit" name={{ ap._id }} value="Reject"></td>
+    {% else %}
+     <td>{{ ap.Result }}</td>
+    {% endif %}
+  </tr>
+  </form>
+  {% endfor %}
+  </table>
+  
+  <br><br><br><br><br><br><br><br>
+  <form action="/login/" method=get>
+        <input type=submit value=Logout>
+  </form>  
+
+</body>
+</html>

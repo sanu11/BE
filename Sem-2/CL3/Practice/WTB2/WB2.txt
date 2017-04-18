@@ -1,0 +1,46 @@
+from flask import Flask, request, render_template
+
+app=Flask(__name__)
+
+@app.route('/eval/add',methods=['POST'])
+def eval_add():
+    data=request.get_json(force=True)
+    a=str(float(data["num1"]) + float(data["num2"]))
+    with open("file.txt","a") as f:
+        f.write(a+"\n")
+    return a
+@app.route('/eval/sub',methods=['POST'])
+def eval_sub():
+    data=request.get_json(force=True)
+    a=str(float(data["num1"]) - float(data["num2"]))
+    with open("file.txt","a") as f:
+        f.write(a+"\n")
+    return a
+    
+@app.route('/eval/mul',methods=['POST'])
+def eval_mul():
+    data=request.get_json(force=True)
+    a=str(float(data["num1"]) * float(data["num2"]))
+    with open("file.txt","a") as f:
+        f.write(a+"\n")
+    return a
+
+@app.route('/eval/div',methods=['POST'])
+def eval_div():
+    data=request.get_json(force=True)
+    a=str(float(data["num1"]) / float(data["num2"]))
+    with open("file.txt","a") as f:
+        f.write(a+"\n")
+    return a
+
+@app.route('/eval/recall',methods=['GET'])
+def eval_recall():
+    with open("file.txt","r") as f:
+        return f.read()
+if __name__=="__main__":
+    app.run()
+    
+#curl -H "Content-Type: application/json" -X POST -d '{"num1":"5","num2":"6"}' http://localhost:5000/eval/add
+
+    
+    

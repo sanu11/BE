@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>International Conference</title>
+ 
+   
+
+<script>
+        $(function() {
+    $('#btnSignUp').click(function() {
+ 
+        $.ajax({
+            url: '/insert',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function(data) {
+                console.log(data);
+                alert("Thanks for your response. Your Total expense is "+data.result+" "+data.currency);
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+    
+  </head>
+ 
+  <body>
+
+      <!--div class="jumbotron"-->
+        <h1 align = "center">Online Registration</h1>
+        <form class="form-signin">
+        <align="center">
+        <label for="inputName" class="sr-only"></label>
+        <input type="name" name="inputName" id="inputName" class="form-control" placeholder="Name" align="center" required autofocus><br>
+        <label for="inputEmail" class="sr-only"></label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" align="center" required autofocus><br>
+        <label for="inputAge" class="sr-only"></label>
+        <input type="number" name="inputAge" id="inputAge" class="form-control" placeholder="Age" align="center" required><br>
+        <label for="inputInstitute" class="sr-only"></label>
+        <input type="institute" name="inputInstitute" id="inputInstitute" class="form-control" placeholder="Institute" align="center" required autofocus><br>
+	<input type="country" name="inputCountry" id="inputCountry" class="form-control" placeholder="Country" align="center" required autofocus>
+        <label for="inputCountry" class="sr-only"></label>
+        <br>
+         <select name="participants">
+	  <option value="participant">Participant</option>         
+	  <option value="student">Student</option>
+	  <option value="Faculty">Faculty</option>
+  	  <option value="Company_Representative">Company Representative</option>
+	  <option value="Professionals">Professionals</option>
+	</select><br>
+	<select name="currency">
+	  <option value="curr">Currency</option>         
+	  <option value="Dollars">Dollars</option>
+	  <option value="Euros">Euros</option>
+  	  <option value="Pounds">Pounds</option>
+	  <option value="Rupees">Rupees</option>
+	</select><br><br>
+	Select services you want to avail:<br>
+	<div class="checkbox">
+	<label>
+	<input type="checkbox" name="check" value="Gym">Gym</label>
+	<label>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="check" value="WiFi">Wifi</label>
+	<label>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="check" value="Spa">Luxury Spa</label>
+	<label>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="check" value="Pool">Swimming Pool</label>
+	<label>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="check" value="Garden">Personal Garden</label></div><br><br>
+	<select name="payment_type">
+	  <option value="curr">Payment type</option>         
+	  <option value="Credit_Card">Credit Card</option>
+	  <option value="Demand_Draft">Demand Draft</option>
+  	  <option value="Debit_Card">Debit Card</option>
+	</select><br>
+	<select name="Hotel">
+	  <option value="accomodation">Accomodation</option>         
+	  <option value="Hyatt_Hotel">Hyatt Hotel</option>
+	  <option value="The_O_Hotel">The O Hotel</option>
+  	  <option value="Blue Diamond">Blue Diamond</option>
+  	  <option value="Vivanta">Vivanta</option>
+  	  <option value="Hilton">Hilton</option>
+	</select><br>
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="button" align="center">Sign up</button>
+        </align>
+
+      </form>
+      <!--/div-->
+ 
+       
+ 
+      <!--footer class="footer"-->
+      <!--/footer-->
+ 
+    <!--/div-->
+  </body>
+</html>
