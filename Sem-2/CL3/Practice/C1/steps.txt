@@ -6,9 +6,9 @@ go to its bin folder . execute below command. Then  folder will b created named 
 gcloud components install app-engine-python
 gcloud components install app-engine-python-extras
 
-in eclipse 
+in NEON eclipse 
  http://pydev.org/updates
-add above link to install software in help of eclipse
+add above link to install software 
 DONE
 
 Create new google-app-engine pydev project

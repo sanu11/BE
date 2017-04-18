@@ -1,0 +1,33 @@
+Why simulation is important for the cloud environment?
+Cloud service providers offer elastic, on-demand, and measured infrastructure, platforms and software services. In the public cloud, tenants have control over the OS, storage and deployed applications. Resources are provisioned in different geographic regions. In the public cloud deployment model, the performance of an application deployed in multiple regions is a matter of concern for organisations. Proof of concepts in the public cloud environment give a better understanding, but cost a lot in terms of capacity building and resource usage even in the pay-per-use model.
+
+CloudSim, which is -a toolkit for the modelling and simulation of Cloud computing environments- comes to the rescue. It provides system and behavioural modelling of the Cloud computing components. Simulation of cloud environments and applications to evaluate performance can provide useful insights to explore such dynamic, massively distributed, and scalable environments.
+
+The principal advantages of simulation are:
+
+    Flexibility of defining configurations
+    Ease of use and customisation
+    Cost benefits: First designing, developing, testing, and then redesigning, rebuilding, and retesting any application on the cloud can be expensive. Simulations take the building and rebuilding phase out of the loop by using the model already created in the design phase.
+    CloudSim is a toolkit for modelling and simulating cloud environments and to assess resource provisioning algorithms.
+
+Figure-1An introduction to CloudSim  
+CloudSim is a simulation tool that allows cloud developers to test the performance of their provisioning policies in a repeatable and controllable environment, free of cost. It helps tune the bottlenecks before real-world deployment. It is a simulator; hence, it doesn’t run any actual software. It can be defined as ‘running a model of an environment in a model of hardware’, where technology-specific details are abstracted.
+
+CloudSim is a library for the simulation of cloud scenarios. It provides essential classes for describing data centres, computational resources, virtual machines, applications, users, and policies for the management of various parts of the system such as scheduling and provisioning. Using these components, it is easy to evaluate new strategies governing the use of clouds, while considering policies, scheduling algorithms, load balancing policies, etc. It can also be used to assess the competence of strategies from various perspectives such as cost, application execution time, etc. It also supports the evaluation of Green IT policies. It can be used as a building block for a simulated cloud environment and can add new policies for scheduling, load balancing and new scenarios. It is flexible enough to be used as a library that allows you to add a desired scenario by writing a Java program.
+By using CloudSim, organisations, R&D centres and industry-based developers can test the performance of a newly developed application in a controlled and easy to set-up environment.
+The prominent features offered by CloudSim are given in Figure 1.
+
+Architecture of CloudSim
+The CloudSim layer provides support for modelling and simulation of cloud environments including dedicated management interfaces for memory, storage, bandwidth and VMs. It also provisions hosts to VMs, application execution management and dynamic system state monitoring. A cloud service provider can implement customised strategies at this layer to study the efficiency of different policies in VM provisioning.
+
+The user code layer exposes basic entities such as the number of machines, their specifications, etc, as well as applications, VMs, number of users, application types and scheduling policies.
+The main components of the CloudSim framework
+Regions: It models geographical regions in which cloud service providers allocate resources to their customers. In cloud analysis, there are six regions that correspond to six continents in the world.
+Data centres: It models the infrastructure services provided by various cloud service providers. It encapsulates a set of computing hosts or servers that are either heterogeneous or homogeneous in nature, based on their hardware configurations.
+Data centre characteristics: It models information regarding data centre resource configurations.
+Hosts: It models physical resources (compute or storage).
+The user base: It models a group of users considered as a single unit in the simulation, and its main responsibility is to generate traffic for the simulation.
+Cloudlet: It specifies the set of user requests. It contains the application ID, name of the user base that is the originator to which the responses have to be routed back, as well as the size of the request execution commands, and input and output files. It models the cloud-based application services. CloudSim categorises the complexity of an application in terms of its computational requirements. Each application service has a pre-assigned instruction length and data transfer overhead that it needs to carry out during its life cycle.
+Service broker: The service broker decides which data centre should be selected to provide the services to the requests from the user base.
+VMM allocation policy: It models provisioning policies on how to allocate VMs to hosts.
+VM scheduler: It models the time or space shared, scheduling a policy to allocate processor cores to VMs.
